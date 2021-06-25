@@ -1,0 +1,53 @@
+{
+  "name": "parse-server-example",
+  "version": "1.4.0",
+  "description": "An example Parse API server using the parse-server module",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ParsePlatform/parse-server-example"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "0.21.1",
+    "body-parser": "1.19.0",
+    "crypto-js": "4.0.0",
+    "dotenv": "10.0.0",
+    "express": "4.17.1",
+    "kerberos": "1.1.4",
+    "lodash": "4.17.21",
+    "multer": "1.4.2",
+    "node": "11.10.0",
+    "nodemon": "2.0.7",
+    "parse": "1.11.1",
+    "parse-server": "2.7.4",
+    "sharp": "0.28.3",
+    "cors": "^2.8.5",
+    "parse-dashboard": "2.1.0"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "lint": "eslint --cache ./cloud && eslint --cache index.js && eslint --cache ./spec",
+    "lint-fix": "eslint --cache --fix ./cloud && eslint --cache --fix index.js && eslint --cache --fix ./spec",
+    "test": "mongodb-runner start && jasmine",
+    "coverage": "nyc jasmine",
+    "prettier": "prettier --write '{cloud,spec}/{**/*,*}.js' 'index.js'",
+    "watch": "babel-watch index.js"
+  },
+  "engines": {
+    "node": ">=4.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "10.1.0",
+    "babel-watch": "7.4.0",
+    "eslint": "7.19.0",
+    "eslint-config-standard": "16.0.2",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "4.2.1",
+    "jasmine": "3.6.4",
+    "mongodb-runner": "4.8.1",
+    "nyc": "15.1.0",
+    "prettier": "2.2.1"
+  }
+}
