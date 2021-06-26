@@ -11,18 +11,28 @@ import { LandmarksService } from 'src/app/landmarks.service';
 
 export class LandmarkListComponent implements OnInit {
   // DEBUG
-  landmarks: Landmark[] = [];
+  public landmarks: Landmark[] = [];
   // landmarks: Landmark[] = LandmarkMockData;
   // landmarks = LandmarkMockData;
 
-  landmarksService: LandmarksService;
+  // landmarksService: LandmarksService;
 
-  constructor(landmarksService: LandmarksService) {
-    this.landmarksService = landmarksService;
-  }
+  // constructor(landmarksService: LandmarksService) {
+  //   this.landmarksService = landmarksService;
+  // }
 
-  ngOnInit() {
-    this.landmarks = this.landmarksService.getLandmarks();
-    console.log("CHECK HERE:", this.landmarks);
-  }
+  // ngOnInit() {
+  //   this.landmarks = this.landmarksService.getLandmarks();
+  //   console.log("CHECK HERE:", this.landmarks);
+  // }
+
+
+constructor(private landmarksService : LandmarksService) {}
+
+ngOnInit() {
+this.landmarksService.getLandmarks().subscribe((landmarks) => {
+  console.log("HOORAH!:", landmarks);
+  this.landmarks = landmarks;
+})
+}
 }

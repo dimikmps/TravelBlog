@@ -76,10 +76,10 @@ try {
         photo_thumb: { url: '' },
       },
     ];
-    res.json({
-      message: "Posts fetched successfully!",
-      landmarks: landmarksBeMock
-    });
+    res.json(
+      // message: "Posts fetched successfully!",
+      landmarksBeMock
+    );
   });
 
   const httpServer = require('http').createServer(app);
