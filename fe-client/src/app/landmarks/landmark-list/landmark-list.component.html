@@ -1,0 +1,26 @@
+<div>
+  <div *ngFor="let hero of heroes">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ hero.name }} </mat-card-title>
+      </mat-card-header>
+
+      <div class="landmark-content-container">
+        <mat-card-content class="landmark-card-pic">
+          <img
+            *ngIf="!hero.photo_thumb"
+            class="landmark-card-pic"
+            src="../../../assets/files/placeholder_thumb.png"
+            alt="Photo of landmark"
+          />
+        </mat-card-content>
+        <mat-card-content class="landmark-card-short-desc">
+          <a>{{ hero.description }} -- BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA</a>
+        </mat-card-content>
+      </div>
+      <mat-card-content class="landmark-card-action">
+        <a>Read more ...</a>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

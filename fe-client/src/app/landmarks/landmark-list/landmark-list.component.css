@@ -1,0 +1,52 @@
+mat-card {
+  width: 50vw;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .landmark-content-container {
+    display: flex;
+    align-items: center;
+    min-height: 30vh;
+  }
+}
+
+.landmark-card-short-desc {
+  display: flex;
+  border: 2px solid yellow;
+  /* width: 50%; */
+  height: 25.5vh;
+  overflow: hidden;
+}
+
+.landmark-card-pic {
+  display: flex;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 960px) {
+  .landmark-card-pic {
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* .landmark-content-container:first-child {
+  margin-right: 20px;
+} */
+
+.landmark-card-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

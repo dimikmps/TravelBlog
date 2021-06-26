@@ -11,14 +11,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { LandmarkCreateComponent } from './landmarks/landmark-create/landmark-create.component';
 import { HeaderComponent } from './header/header.component'
+import { LandmarkCreateComponent } from './landmarks/landmark-create/landmark-create.component';
+import { LandmarkListComponent } from './landmarks/landmark-list/landmark-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     LandmarkCreateComponent,
-    HeaderComponent
+    LandmarkListComponent
   ],
   imports: [
     BrowserModule,
