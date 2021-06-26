@@ -1,21 +1,21 @@
-<div>
-  <div *ngFor="let hero of heroes">
+<div *ngIf="landmarks.length>0">
+  <div *ngFor="let landmark of landmarks">
     <mat-card>
       <mat-card-header>
-        <mat-card-title>{{ hero.name }} </mat-card-title>
+        <mat-card-title>{{ landmark.title }} </mat-card-title>
       </mat-card-header>
 
       <div class="landmark-content-container">
         <mat-card-content class="landmark-card-pic">
           <img
-            *ngIf="!hero.photo_thumb"
+            *ngIf="!landmark.photo_thumb"
             class="landmark-card-pic"
             src="../../../assets/files/placeholder_thumb.png"
             alt="Photo of landmark"
           />
         </mat-card-content>
         <mat-card-content class="landmark-card-short-desc">
-          <a>{{ hero.description }} -- BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA</a>
+          <a>{{ landmark.description }} -- BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA</a>
         </mat-card-content>
       </div>
       <mat-card-content class="landmark-card-action">
@@ -24,3 +24,4 @@
     </mat-card>
   </div>
 </div>
+<p *ngIf="landmarks.length <= 0">Landscapes not populated!</p>

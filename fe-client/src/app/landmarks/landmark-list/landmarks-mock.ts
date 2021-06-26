@@ -1,12 +1,12 @@
-export const HEROES = [
-  { id: 11, name: 'Dr Nice', description: 'SUPERPOWER SHORT DESCRIPTION', photo_thumb: '' },
-  { id: 12, name: 'Narco', description: 'SUPERPOWER SHORT DESCRIPTION', photo_thumb: '' },
-  { id: 13, name: 'Bombasto', description: 'SUPERPOWER SHORT DESCRIPTION', photo_thumb: '' },
-  { id: 14, name: 'Celeritas', description: 'SUPERPOWER SHORT DESCRIPTION', photo_thumb: '' },
-  { id: 15, name: 'Magneta', description: 'SUPERPOWER SHORT DESCRIPTION', photo_thumb: '' },
-  { id: 16, name: 'RubberMan', description: 'SUPERPOWER SHORT DESCRIPTION', photo_thumb: '' },
-  { id: 17, name: 'Dynama', description: 'SUPERPOWER SHORT DESCRIPTION', photo_thumb: '' },
-  { id: 18, name: 'Dr IQ', description: 'SUPERPOWER SHORT DESCRIPTION', photo_thumb: '' },
-  { id: 19, name: 'Magma', description: 'SUPERPOWER SHORT DESCRIPTION', photo_thumb: '' },
-  { id: 20, name: 'Tornado', description: 'SUPERPOWER SHORT DESCRIPTION', photo_thumb: '' }
+export const LandmarkMockData = [
+  { objectId: 11, title: 'Dr Nice', shortInfo: 'SUPERPOWER SHORT DESCRIPTION', description: 'THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE', location:[11.1111, 22.2222], url:"www.somewebsite.eu", photo:"", photo_thumb: '' },
+  { objectId: 12, title: 'Narco', shortInfo: 'SUPERPOWER SHORT DESCRIPTION', description: 'THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE', location:[11.1111, 22.2222], url:"www.somewebsite.eu", photo:"", photo_thumb: '' },
+  { objectId: 13, title: 'Bombasto', shortInfo: 'SUPERPOWER SHORT DESCRIPTION', description: 'THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE', location:[11.1111, 22.2222], url:"www.somewebsite.eu", photo:"", photo_thumb: '' },
+  { objectId: 14, title: 'Celeritas', shortInfo: 'SUPERPOWER SHORT DESCRIPTION', description: 'THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE', location:[11.1111, 22.2222], url:"www.somewebsite.eu", photo:"", photo_thumb: '' },
+  { objectId: 15, title: 'Magneta', shortInfo: 'SUPERPOWER SHORT DESCRIPTION', description: 'THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE', location:[11.1111, 22.2222], url:"www.somewebsite.eu", photo:"", photo_thumb: '' },
+  { objectId: 16, title: 'RubberMan', shortInfo: 'SUPERPOWER SHORT DESCRIPTION', description: 'THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE', location:[11.1111, 22.2222], url:"www.somewebsite.eu", photo:"", photo_thumb: '' },
+  { objectId: 17, title: 'Dynama', shortInfo: 'SUPERPOWER SHORT DESCRIPTION', description: 'THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE', location:[11.1111, 22.2222], url:"www.somewebsite.eu", photo:"", photo_thumb: '' },
+  { objectId: 18, title: 'Dr IQ', shortInfo: 'SUPERPOWER SHORT DESCRIPTION', description: 'THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE', location:[11.1111, 22.2222], url:"www.somewebsite.eu", photo:"", photo_thumb: '' },
+  { objectId: 19, title: 'Magma', shortInfo: 'SUPERPOWER SHORT DESCRIPTION', description: 'THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE', location:[11.1111, 22.2222], url:"www.somewebsite.eu", photo:"", photo_thumb: '' },
+  { objectId: 20, title: 'Tornado', shortInfo: 'SUPERPOWER SHORT DESCRIPTION', description: 'THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE', location:[11.1111, 22.2222], url:"www.somewebsite.eu", photo:"", photo_thumb: '' }
 ];

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { HEROES } from '../landmark-list/landmarks-mock';
+import { LandmarkMockData } from '../landmark-list/landmarks-mock';
+import { Landmark } from '../../landmark.model'
+
 
 @Component({
   selector: 'app-landmark-list',
@@ -9,6 +11,7 @@ import { HEROES } from '../landmark-list/landmarks-mock';
 
 export class LandmarkListComponent {
 
-heroes = HEROES;
+// landmarks: Landmark[] = [];
+landmarks = LandmarkMockData;
 
 }
