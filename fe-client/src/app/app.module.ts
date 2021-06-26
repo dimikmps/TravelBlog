@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component'
 import { LandmarkCreateComponent } from './landmarks/landmark-create/landmark-create.component';
 import { LandmarkListComponent } from './landmarks/landmark-list/landmark-list.component';
+import { LandmarksService } from './landmarks.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { LandmarkListComponent } from './landmarks/landmark-list/landmark-list.c
     MatFormFieldModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [
+    LandmarksService
+  ],
   bootstrap: [
     AppComponent
   ]
