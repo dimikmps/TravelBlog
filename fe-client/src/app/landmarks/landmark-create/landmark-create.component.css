@@ -1,0 +1,40 @@
+mat-card {
+  width: 50vw;
+  margin: auto;
+}
+
+mat-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card-actions,
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dual_field_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.card_coords {
+  display: flex;
+  width: 30%;
+}
+
+.card_url {
+  display: flex;
+  width: 60%;
+  align-items: right;
+  justify-content: center;
+  margin-left: auto;
+}
