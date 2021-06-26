@@ -9,6 +9,8 @@ require('dotenv').config();
 
 const port = process.env.SERVER_PORT;
 const ParseServer = require('parse-server').ParseServer;
+const axios = require('axios');
+
 var ParseDashboard = require('parse-dashboard');
 const { nextTick } = require('process');
 
@@ -51,37 +53,25 @@ try {
   // make the Parse Dashboard available at /dashboard, , using the pre-defined dashboard config
   app.use('/dashboard', dashboard);
 
-  app.use('/api/landmarks', (req, res, next) => {
-    const landmarksBeMock = [
-      {
-        objectId: '01',
-        title: 'NNNN',
-        shortInfo: 'SHORTTTT',
-        description:
-          'THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE',
-        location: { latitude: 0.01, longitude: 0.02 },
-        url: 'www.website.se',
-        photo: { url: '' },
-        photo_thumb: { url: '' },
-      },
-      {
-        objectId: '02',
-        title: 'MMMM',
-        shortInfo: 'SHORTTTT2',
-        description:
-          '2222THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE | THE BIG DESCRIPTION IS HERE',
-        location: { latitude: 0.01, longitude: 0.02 },
-        url: 'www.website2.se',
-        photo: { url: '' },
-        photo_thumb: { url: '' },
-      },
-    ];
-    res.json(
-      // message: "Posts fetched successfully!",
-      landmarksBeMock
-    );
+  app.use('/api/landmarks', async (req, res) => {
+      try {
+        const landmarks = Parse.Object.extend("landmarks");
+        const query = new Parse.Query(landmarks);
+    
+        // Get selected attributes with ascending order, based on the `order` field in the class
+        query.select("objectId", "title", "shortInfo", "location", "photo", "photoThumb", "url");
+        // query.select("title");
+        query.ascending("order");
+    
+        const land = await query.find();
+        return res.status(200).json(land);
+      }
+      catch (err) {
+        return res.status(500).json({ message: 'Landmarks not found!' });
+      }
   });
 
+  
   const httpServer = require('http').createServer(app);
 
   httpServer.listen(port, function () {

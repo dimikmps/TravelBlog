@@ -8,14 +8,14 @@
       <div class="landmark-content-container">
         <mat-card-content class="landmark-card-pic">
           <img
-            *ngIf="!landmark.photo_thumb.url"
+            *ngIf="!landmark.photo_thumb"
             class="landmark-card-pic"
             src="../../../assets/files/placeholder_thumb.png"
             alt="Photo of landmark"
           />
         </mat-card-content>
         <mat-card-content class="landmark-card-short-desc">
-          <a>{{ landmark.description }} -- BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA</a>
+          <a>{{ landmark.shortInfo }}</a>
         </mat-card-content>
       </div>
       <mat-card-content class="landmark-card-action">
