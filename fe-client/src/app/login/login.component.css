@@ -1,0 +1,24 @@
+.login_card {
+  width: 50vw;
+  margin: auto;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_card > mat-card-title {
+  text-align: center;
+}
+
+.login_button_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

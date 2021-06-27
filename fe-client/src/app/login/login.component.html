@@ -1,0 +1,34 @@
+<mat-card class="login_card">
+  <mat-card-title>User authentication</mat-card-title>
+  <form #loginForm="ngForm">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input class = "input_field"
+        matInput
+        name="username"
+        ngModel
+        type="username"
+        #usernameValue="ngModel"
+        required
+      />
+      <mat-error *ngIf="usernameValue.invalid"></mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input class = "input_field"
+        matInput
+        name="password"
+        ngModel
+        type="password"
+        #passwordValue="ngModel"
+        required
+      />
+      <mat-error *ngIf="passwordValue.invalid"></mat-error>
+    </mat-form-field>
+    <br />
+    <div class="login_button_wrapper">
+      <button mat-raised-button color="accent" type="submit">Login</button>
+    </div>
+  </form>
+</mat-card>

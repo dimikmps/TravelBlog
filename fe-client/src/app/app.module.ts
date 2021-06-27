@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -13,16 +13,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './header/header.component'
-import { LandmarkCreateComponent } from './landmarks/landmark-create/landmark-create.component';
 import { LandmarkListComponent } from './landmarks/landmark-list/landmark-list.component';
 import { LandmarksService } from './landmarks.service';
+import { LoginComponent } from './login/login.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LandmarkCreateComponent,
-    LandmarkListComponent
+    LandmarkListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +34,8 @@ import { LandmarksService } from './landmarks.service';
     MatButtonModule,
     MatFormFieldModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [
     LandmarksService
