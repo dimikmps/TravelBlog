@@ -21,7 +21,7 @@ export class LandmarkSingleComponent implements OnInit {
 
     this.landmarksService.getLandmarkById(id).subscribe((landmark) => {
       // DEBUG
-      console.log('HOORAH!:', landmark);
+      // console.log('HOORAH!:', landmark);
       this.landmark = landmark;
     });
   }

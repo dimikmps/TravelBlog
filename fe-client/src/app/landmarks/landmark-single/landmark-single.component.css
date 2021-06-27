@@ -17,6 +17,7 @@ mat-card-header {
   display: flex;
   /* border: 2px solid yellow; */
   /* width: 50%; */
+  text-align: center;
 }
 
 .landmark-card-pic {
@@ -45,3 +46,9 @@ mat-card-header {
 mat-card-content a {
   color: black;
 }
+
+.card_link:hover {
+  color: #ff4081 !important;
+}
+
+/* body > app-root > main > app-landmark-single > div > div > mat-card > div:nth-child(3) > mat-card-content > a */

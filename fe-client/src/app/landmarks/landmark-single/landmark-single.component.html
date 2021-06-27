@@ -1,6 +1,6 @@
 <div class="expanded_body">
   <div *ngIf="landmark">
-    <mat-card>
+    <mat-card class="mat-elevation-z2">
       <mat-card-header>
         <mat-card-title>{{ landmark.title }} </mat-card-title>
       </mat-card-header>
@@ -20,8 +20,11 @@
       </div>
       <div *ngIf="landmark.url">
         <mat-card-content class="landmark-card-action">
-          <a href={{landmark.url}} target="_blank">Visit <span style="font-weight: bold">{{ landmark.title }}'s</span> Official Website</a>
-
+          <a class="card_link" href="{{ landmark.url }}" target="_blank"
+            >Visit
+            <span style="font-weight: bold">{{ landmark.title }}'s</span>
+            Official Website</a
+          >
         </mat-card-content>
       </div>
     </mat-card>
