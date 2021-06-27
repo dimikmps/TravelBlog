@@ -48,6 +48,8 @@ var dashboard = new ParseDashboard({
 try {
   app.use(cors());
 
+  app.use(express.json())
+
   // Serve the Parse API on the /parse URL prefix, using the pre-defined api config
   app.use('/parse', api);
 
