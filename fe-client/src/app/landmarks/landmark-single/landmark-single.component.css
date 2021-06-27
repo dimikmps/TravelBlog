@@ -1,0 +1,47 @@
+.expanded_body {
+  margin-top: -4rem;
+}
+
+mat-card {
+  width: 90vw;
+  margin: auto;
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landmark-card-desc {
+  display: flex;
+  /* border: 2px solid yellow; */
+  /* width: 50%; */
+}
+
+.landmark-card-pic {
+  display: flex;
+  margin-right: 0.5rem;
+}
+
+.landmark-card-pic {
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* .landmark-content-container:first-child {
+  margin-right: 20px;
+} */
+
+.landmark-card-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card-content a {
+  color: black;
+}

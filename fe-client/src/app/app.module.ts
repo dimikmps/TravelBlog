@@ -16,13 +16,15 @@ import { HeaderComponent } from './header/header.component'
 import { LandmarkListComponent } from './landmarks/landmark-list/landmark-list.component';
 import { LandmarksService } from './landmarks.service';
 import { LoginComponent } from './login/login.component'
+import { LandmarkSingleComponent } from './landmarks/landmark-single/landmark-single.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LandmarkListComponent,
-    LoginComponent
+    LoginComponent,
+    LandmarkSingleComponent
   ],
   imports: [
     BrowserModule,

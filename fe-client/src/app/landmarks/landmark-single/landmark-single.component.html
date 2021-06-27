@@ -1,0 +1,29 @@
+<div class="expanded_body">
+  <div *ngIf="landmark">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ landmark.title }} </mat-card-title>
+      </mat-card-header>
+
+      <div class="landmark-content-container">
+        <mat-card-content class="landmark-card-pic">
+          <img
+            *ngIf="!landmark.photo_thumb"
+            class="landmark-card-pic"
+            src="../../../assets/files/placeholder_medium.png"
+            alt="Photo of landmark"
+          />
+        </mat-card-content>
+        <mat-card-content class="landmark-card-desc">
+          <a>{{ landmark.description }}</a>
+        </mat-card-content>
+      </div>
+      <div *ngIf="landmark.url">
+        <mat-card-content class="landmark-card-action">
+          <a href={{landmark.url}} target="_blank">Visit <span style="font-weight: bold">{{ landmark.title }}'s</span> Official Website</a>
+
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div>
+</div>

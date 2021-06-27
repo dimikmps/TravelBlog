@@ -14,6 +14,10 @@ export class LandmarksService {
     return this.http.get<Landmark[]>(`${this.uri}/api/landmarks`);
   }
 
+  getLandmarkById(id: string) {
+    return this.http.get<Landmark>(`${this.uri}/api/landmarks/${id}`);
+  }
+
   // TODO: add addLandmark method
   // addLandmark() {}
 }

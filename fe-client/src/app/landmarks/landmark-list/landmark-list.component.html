@@ -1,8 +1,12 @@
-<div *ngIf="landmarks.length>0">
+<div *ngIf="landmarks.length > 0">
   <div *ngFor="let landmark of landmarks">
     <mat-card>
       <mat-card-header>
-        <mat-card-title>{{ landmark.title }} </mat-card-title>
+        <mat-card-title>
+          <a [routerLink]="['/landmark', landmark.objectId]">
+            {{ landmark.title }}
+          </a>
+        </mat-card-title>
       </mat-card-header>
 
       <div class="landmark-content-container">
@@ -19,7 +23,7 @@
         </mat-card-content>
       </div>
       <mat-card-content class="landmark-card-action">
-        <a>Read more ...</a>
+        <a [routerLink]="['/landmark', landmark.objectId]">Read more ...</a>
       </mat-card-content>
     </mat-card>
   </div>
