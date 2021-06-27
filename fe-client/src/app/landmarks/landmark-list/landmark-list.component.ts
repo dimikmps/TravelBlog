@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LandmarkMockData } from '../landmark-list/landmarks-mock';
 import { Landmark } from '../../landmark.model';
 import { LandmarksService } from 'src/app/landmarks.service';
 
@@ -8,31 +7,16 @@ import { LandmarksService } from 'src/app/landmarks.service';
   templateUrl: './landmark-list.component.html',
   styleUrls: ['./landmark-list.component.css'],
 })
-
 export class LandmarkListComponent implements OnInit {
-  // DEBUG
   public landmarks: Landmark[] = [];
-  // landmarks: Landmark[] = LandmarkMockData;
-  // landmarks = LandmarkMockData;
 
-  // landmarksService: LandmarksService;
+  constructor(private landmarksService: LandmarksService) {}
 
-  // constructor(landmarksService: LandmarksService) {
-  //   this.landmarksService = landmarksService;
-  // }
-
-  // ngOnInit() {
-  //   this.landmarks = this.landmarksService.getLandmarks();
-  //   console.log("CHECK HERE:", this.landmarks);
-  // }
-
-
-constructor(private landmarksService : LandmarksService) {}
-
-ngOnInit() {
-this.landmarksService.getLandmarks().subscribe((landmarks) => {
-  console.log("HOORAH!:", landmarks);
-  this.landmarks = landmarks;
-})
-}
+  ngOnInit() {
+    this.landmarksService.getLandmarks().subscribe((landmarks) => {
+      // DEBUG
+      // console.log('HOORAH!:', landmarks);
+      this.landmarks = landmarks;
+    });
+  }
 }

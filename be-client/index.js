@@ -58,9 +58,8 @@ try {
         const landmarks = Parse.Object.extend("landmarks");
         const query = new Parse.Query(landmarks);
     
-        // Get selected attributes with ascending order, based on the `order` field in the class
+        // Get attributes with ascending order
         query.select("objectId", "title", "shortInfo", "location", "photo", "photoThumb", "url");
-        // query.select("title");
         query.ascending("order");
     
         const land = await query.find();
