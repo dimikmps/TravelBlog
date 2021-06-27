@@ -1,51 +1,52 @@
 // express application adding the parse-server module to expose Parse
+require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
 const args = process.argv || [];
 const test = args.some(arg => arg.includes('jasmine'));
 const cors = require('cors');
-require('dotenv').config();
 
 const port = process.env.SERVER_PORT;
-const ParseServer = require('parse-server').ParseServer;
-const axios = require('axios');
+const databaseUri = process.env.DB_URI;
 
+const ParseServer = require('parse-server').ParseServer;
 var ParseDashboard = require('parse-dashboard');
-const { nextTick } = require('process');
 
 var app = express();
-app.use(cors());
+
+const landmarksRouter = require('./landmarksRouting/landmarksRouter');
 
 // TODO: Add fallback
 // const databaseUri = process.env.DB_URI || process.env.MONGODB_URI;
-const databaseUri = process.env.DB_URI;
+
+var api = new ParseServer({
+  databaseURI: databaseUri,
+  appId: process.env.APP_ID,
+  masterKey: process.env.MASTER_KEY,
+  fileKey: process.env.FILE_KEY,
+  serverURL: process.env.SERVER_URL,
+});
+
+var dashboard = new ParseDashboard({
+  apps: [
+    {
+      serverURL: process.env.SERVER_URL,
+      appId: process.env.APP_ID,
+      masterKey: process.env.MASTER_KEY,
+      appName: process.env.APP_NAME,
+    },
+  ],
+  users: [
+    {
+      user: process.env.APP_USER,
+      pass: process.env.APP_PASS,
+    },
+  ],
+});
 
 try {
-  var api = new ParseServer({
-    databaseURI: databaseUri,
-    appId: process.env.APP_ID,
-    masterKey: process.env.MASTER_KEY,
-    fileKey: process.env.FILE_KEY,
-    serverURL: process.env.SERVER_URL,
-  });
-
-  var dashboard = new ParseDashboard({
-    apps: [
-      {
-        serverURL: process.env.SERVER_URL,
-        appId: process.env.APP_ID,
-        masterKey: process.env.MASTER_KEY,
-        appName: process.env.APP_NAME,
-      },
-    ],
-    users: [
-      {
-        user: process.env.APP_USER,
-        pass: process.env.APP_PASS,
-      },
-    ],
-  });
+  app.use(cors());
 
   // Serve the Parse API on the /parse URL prefix, using the pre-defined api config
   app.use('/parse', api);
@@ -53,24 +54,9 @@ try {
   // make the Parse Dashboard available at /dashboard, , using the pre-defined dashboard config
   app.use('/dashboard', dashboard);
 
-  app.use('/api/landmarks', async (req, res) => {
-      try {
-        const landmarks = Parse.Object.extend("landmarks");
-        const query = new Parse.Query(landmarks);
-    
-        // Get attributes with ascending order
-        query.select("objectId", "title", "shortInfo", "location", "photo", "photoThumb", "url");
-        query.ascending("order");
-    
-        const land = await query.find();
-        return res.status(200).json(land);
-      }
-      catch (err) {
-        return res.status(500).json({ message: 'Landmarks not found!' });
-      }
-  });
+  // Point to the method router for landmarks API requests
+  app.use('/api', landmarksRouter);
 
-  
   const httpServer = require('http').createServer(app);
 
   httpServer.listen(port, function () {
