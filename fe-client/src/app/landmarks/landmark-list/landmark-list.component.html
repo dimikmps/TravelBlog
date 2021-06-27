@@ -1,6 +1,6 @@
 <div *ngIf="landmarks.length > 0">
   <div *ngFor="let landmark of landmarks">
-    <mat-card>
+    <mat-card class="mat-elevation-z5">
       <mat-card-header>
         <mat-card-title>
           <a [routerLink]="['/landmark', landmark.objectId]">
@@ -23,7 +23,9 @@
         </mat-card-content>
       </div>
       <mat-card-content class="landmark-card-action">
-        <a [routerLink]="['/landmark', landmark.objectId]">Read more ...</a>
+        <a [routerLink]="['/landmark', landmark.objectId]">
+          <button mat-raised-button color="accent">Read more</button>
+        </a>
       </mat-card-content>
     </mat-card>
   </div>

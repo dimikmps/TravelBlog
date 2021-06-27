@@ -8,6 +8,7 @@ mat-card-header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 960px) {
@@ -15,6 +16,7 @@ mat-card-header {
     display: flex;
     align-items: center;
     min-height: 30vh;
+    margin-bottom: 0.5rem;
   }
 }
 
