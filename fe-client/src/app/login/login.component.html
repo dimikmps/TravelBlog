@@ -1,6 +1,6 @@
 <mat-card class="mat-elevation-z2 login_card">
   <mat-card-title>User login</mat-card-title>
-  <form #loginForm="ngForm">
+  <form (ngSubmit)="loginTrigger(loginForm)" #loginForm="ngForm">
     <mat-form-field>
       <mat-label>Username</mat-label>
       <input class = "input_field"

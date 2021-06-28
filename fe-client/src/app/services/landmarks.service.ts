@@ -1,4 +1,4 @@
-import { Landmark } from './landmark.model';
+import { Landmark } from '../landmark.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -17,7 +17,4 @@ export class LandmarksService {
   getLandmarkById(id: string) {
     return this.http.get<Landmark>(`${this.uri}/api/landmarks/${id}`);
   }
-
-  // TODO: add addLandmark method
-  // addLandmark() {}
 }

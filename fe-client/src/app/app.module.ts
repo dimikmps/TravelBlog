@@ -7,16 +7,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HeaderComponent } from './header/header.component'
+import { HeaderComponent } from './header/header.component';
 import { LandmarkListComponent } from './landmarks/landmark-list/landmark-list.component';
-import { LandmarksService } from './landmarks.service';
-import { LoginComponent } from './login/login.component'
+import { LandmarksService } from './services/landmarks.service';
+import { LoginComponent } from './login/login.component';
 import { LandmarkSingleComponent } from './landmarks/landmark-single/landmark-single.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { LandmarkSingleComponent } from './landmarks/landmark-single/landmark-si
     HeaderComponent,
     LandmarkListComponent,
     LoginComponent,
-    LandmarkSingleComponent
+    LandmarkSingleComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,11 +40,7 @@ import { LandmarkSingleComponent } from './landmarks/landmark-single/landmark-si
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [
-    LandmarksService
-  ],
-  bootstrap: [
-    AppComponent
-  ]
+  providers: [LandmarksService, AuthService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

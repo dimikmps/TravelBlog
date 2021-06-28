@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Landmark } from '../../landmark.model';
-import { LandmarksService } from 'src/app/landmarks.service';
+import { LandmarksService } from 'src/app/services/landmarks.service';
 
 
 @Component({

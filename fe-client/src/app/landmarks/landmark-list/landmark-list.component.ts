@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Landmark } from '../../landmark.model';
-import { LandmarksService } from 'src/app/landmarks.service';
+import { LandmarksService } from 'src/app/services/landmarks.service';
 
 @Component({
   selector: 'app-landmark-list',
