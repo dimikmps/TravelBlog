@@ -11,6 +11,7 @@ parse.serverURL = environment.PARSE.SERVER_URL;
 export class AuthService {
   private authToken = '';
 
+  // Login and get current user's token
   login(username, password) {
     return new Promise<void>(async (resolve, reject) => {
       parse.User.logIn(username, password).then(
@@ -31,6 +32,7 @@ export class AuthService {
     });
   }
 
+  // Get current user's token
   getAuthToken() {
     let loggedUser = parse.User.current();
     if (loggedUser) {
@@ -38,7 +40,6 @@ export class AuthService {
       console.log('TOKEN IS: ', loggedUser.getSessionToken());
       return loggedUser.getSessionToken();
     } else {
-      // DEBUG
       console.log('SESSION TOKEN NOT EXISTENT...');
       return;
     }

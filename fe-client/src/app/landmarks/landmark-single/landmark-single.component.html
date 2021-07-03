@@ -4,13 +4,20 @@
       <mat-card-header>
         <mat-card-title>{{ landmark.title }} </mat-card-title>
       </mat-card-header>
-
+      <button mat-raised-button class="edit_button">Edit</button>
       <div class="landmark-content-container">
         <mat-card-content class="landmark-card-pic">
           <img
-            *ngIf="!landmark.photo_thumb"
+            *ngIf="landmark.photo == undefined"
             class="landmark-card-pic"
             src="../../../assets/files/placeholder_medium.png"
+            alt="Photo of landmark"
+          />
+          <img
+            *ngIf="landmark.photo !== undefined"
+            class="landmark-card-pic"
+            mat-card-image
+            src="{{ landmark.photo.url }}"
             alt="Photo of landmark"
           />
         </mat-card-content>

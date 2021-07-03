@@ -51,4 +51,10 @@ mat-card-content a {
   color: #ff4081 !important;
 }
 
-/* body > app-root > main > app-landmark-single > div > div > mat-card > div:nth-child(3) > mat-card-content > a */
+.landmark-card-pic {
+  margin:16px auto 16px auto;
+}
+
+.edit_button {
+
+}

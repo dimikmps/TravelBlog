@@ -34,22 +34,20 @@ router.get('/landmarks/', async (req, res) => {
 // Put/edit landmark
 router.put('/landmark', async (req, res) => {
   try {
-    // TODO: Add authorization
+    // Curent user's session token previously retrieved from within the FE landmarks service (implicitly auth service)
+    const sessionToken = req.headers['x-parse-session-token'];
+
     const landmarks = Parse.Object.extend('landmarks');
     const query = new Parse.Query(landmarks);
-    const queryResult = await query.get(req.body.id);
+    const queryResult = await query.get(req.body.id, { sessionToken: sessionToken });
 
-    // DEBUG
-    // const queryResult = await query.get("eYvgjO4XT4");
-
-    // DEBUG
-    // queryResult.set('title', "SUCCESS");
+    // TODO: Refine what gets updated / Set required fields or sth?
     queryResult.set('title', req.body.title);
     queryResult.set('description', req.body.description);
     queryResult.set('shortInfo', req.body.shortInfo);
     queryResult.set('url', req.body.url);
 
-    await queryResult.save();
+    await queryResult.save(null, { sessionToken: sessionToken });
 
     return res.status(200).json(queryResult);
   } catch (err) {

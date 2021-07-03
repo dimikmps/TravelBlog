@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Landmark } from '../../landmark.model';
 import { LandmarksService } from 'src/app/services/landmarks.service';
 
-
 @Component({
   selector: 'app-landmark-single',
   templateUrl: './landmark-single.component.html',
@@ -12,12 +11,14 @@ import { LandmarksService } from 'src/app/services/landmarks.service';
 export class LandmarkSingleComponent implements OnInit {
   public landmark!: Landmark;
 
-  constructor(private landmarksService: LandmarksService, private route: ActivatedRoute) {}
+  constructor(
+    private landmarksService: LandmarksService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    // DEBUG
-    // const id = "61ssoI39wy";
-    const id = this.route.snapshot.params.id
+    // Get currently selected landmark's id
+    const id = this.route.snapshot.params.id;
 
     this.landmarksService.getLandmarkById(id).subscribe((landmark) => {
       // DEBUG
