@@ -3,21 +3,22 @@
     <mat-card class="mat-elevation-z2">
       <mat-card-header>
         <mat-card-title>{{ landmark.title }} </mat-card-title>
+        <button *ngIf="userStatus==true" mat-raised-button color="accent" class="edit_button">Edit</button>
+        <!-- <button mat-raised-button class="edit_button">Edit</button> -->
       </mat-card-header>
-      <button mat-raised-button class="edit_button">Edit</button>
       <div class="landmark-content-container">
         <mat-card-content class="landmark-card-pic">
           <img
-            *ngIf="landmark.photo == undefined"
+            *ngIf="landmark.photoThumb == undefined"
             class="landmark-card-pic"
             src="../../../assets/files/placeholder_medium.png"
             alt="Photo of landmark"
           />
           <img
-            *ngIf="landmark.photo !== undefined"
+            *ngIf="landmark.photoThumb !== undefined"
             class="landmark-card-pic"
             mat-card-image
-            src="{{ landmark.photo.url }}"
+            src="{{ landmark.photoThumb.url }}"
             alt="Photo of landmark"
           />
         </mat-card-content>

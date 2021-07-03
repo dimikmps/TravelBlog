@@ -11,7 +11,7 @@ export interface Landmark {
   photo: {
       url: string
   };
-  photo_thumb: {
+  photoThumb: {
       url: string
   };
 }

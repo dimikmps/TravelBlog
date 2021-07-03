@@ -3,7 +3,8 @@
   <span class="nav_spacer"></span>
   <ul>
     <li>
-      <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
+      <a *ngIf="userStatus==false"  mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
+      <a *ngIf="userStatus==true"  mat-button href="#" (click)="onLogoutClick($event)">Logout</a>
     </li>
   </ul>
 </mat-toolbar>

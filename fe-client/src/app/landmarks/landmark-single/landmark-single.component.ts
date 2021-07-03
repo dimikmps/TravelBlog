@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Landmark } from '../../landmark.model';
 import { LandmarksService } from 'src/app/services/landmarks.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-landmark-single',
@@ -10,10 +11,12 @@ import { LandmarksService } from 'src/app/services/landmarks.service';
 })
 export class LandmarkSingleComponent implements OnInit {
   public landmark!: Landmark;
+  public userStatus;
 
   constructor(
     private landmarksService: LandmarksService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -24,6 +27,10 @@ export class LandmarkSingleComponent implements OnInit {
       // DEBUG
       // console.log('HOORAH!:', landmark);
       this.landmark = landmark;
+    });
+
+    this.authService.checkUserStatus().subscribe((userStatus) => {
+      this.userStatus = userStatus;
     });
   }
 }

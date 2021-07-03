@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
+import { resolve } from 'dns';
 import * as Parse from 'parse';
 let parse = require('parse');
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { environment } from '../../environments/environment';
 
@@ -9,7 +12,14 @@ parse.serverURL = environment.PARSE.SERVER_URL;
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  //Initialize to empty string until a new session token is retrieved
   private authToken = '';
+  private userStatus: BehaviorSubject<boolean>;
+
+  constructor(private router: Router) {
+    //Initialize to false until a user logs in
+    this.userStatus = new BehaviorSubject<boolean>(false);
+  }
 
   // Login and get current user's token
   login(username, password) {
@@ -18,9 +28,16 @@ export class AuthService {
         (success) => {
           // DEBUG
           console.log('SUCCESSFULL LOGIN!');
+
+          // Get the current session token
           this.authToken = this.getAuthToken();
 
+          // Change the user status to logged in
+          this.userStatus.next(true);
           resolve();
+
+          // Redirect to homepage
+          this.router.navigate(['/']);
         },
         (err) => {
           // DEBUG
@@ -30,6 +47,17 @@ export class AuthService {
         }
       );
     });
+  }
+
+  // Log the user out
+  logout() {
+    parse.User.logOut();
+
+    // Change the user's status to logged out
+    this.userStatus.next(false);
+
+    // Redirect to homepage
+    // this.router.navigate(['/']);
   }
 
   // Get current user's token
@@ -43,5 +71,10 @@ export class AuthService {
       console.log('SESSION TOKEN NOT EXISTENT...');
       return;
     }
+  }
+
+  // Check if the user is logged in or not
+  checkUserStatus() {
+    return this.userStatus;
   }
 }

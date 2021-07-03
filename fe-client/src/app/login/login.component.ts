@@ -14,8 +14,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   loginTrigger(form: NgForm) {
-    // DEBUG
-    // console.log(form.value.username, form.value.password);
 
     this.authToken = this.authService.login(
       form.value.username,

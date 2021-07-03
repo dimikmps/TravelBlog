@@ -12,9 +12,15 @@
       <div class="landmark-content-container">
         <mat-card-content class="landmark-card-pic">
           <img
-            *ngIf="!landmark.photo_thumb"
+            *ngIf="landmark.photoThumb == undefined"
             class="landmark-card-pic"
             src="../../../assets/files/placeholder_thumb.png"
+            alt="Photo of landmark"
+          />
+          <img
+            *ngIf="landmark.photoThumb !== undefined"
+            class="landmark-card-pic"
+            src="{{ landmark.photoThumb.url }}"
             alt="Photo of landmark"
           />
         </mat-card-content>
