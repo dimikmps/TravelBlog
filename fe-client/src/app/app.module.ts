@@ -20,6 +20,7 @@ import { LandmarkSingleComponent } from './landmarks/landmark-single/landmark-si
 import { AuthService } from './services/auth.service';
 import { LandmarkEditComponent } from './landmarks/landmark-edit/landmark-edit.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     MatToolbarModule,
     HttpClientModule,
     ReactiveFormsModule,
-    LeafletModule
+    LeafletModule,
+    MatCarouselModule.forRoot()
   ],
   providers: [LandmarksService, AuthService],
   bootstrap: [AppComponent],
