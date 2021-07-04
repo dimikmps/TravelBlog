@@ -70,7 +70,10 @@ export class LandmarkEditComponent implements OnInit {
 
     this.landmarksService.editLandmark(this.newLandmark);
 
-    // Redirect to homepage
-    this.router.navigate(['/landmark/', this.newLandmark.objectId]);
+    this.alert_sucess();
+  }
+
+  async alert_sucess() {
+    swal('Edit Landmark', 'Changes saved succesfully!', 'success');
   }
 }
