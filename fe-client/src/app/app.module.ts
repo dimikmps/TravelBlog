@@ -18,6 +18,7 @@ import { LandmarksService } from './services/landmarks.service';
 import { LoginComponent } from './login/login.component';
 import { LandmarkSingleComponent } from './landmarks/landmark-single/landmark-single.component';
 import { AuthService } from './services/auth.service';
+import { LandmarkEditComponent } from './landmarks/landmark-edit/landmark-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AuthService } from './services/auth.service';
     LandmarkListComponent,
     LoginComponent,
     LandmarkSingleComponent,
+    LandmarkEditComponent
   ],
   imports: [
     BrowserModule,

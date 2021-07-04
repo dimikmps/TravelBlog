@@ -1,0 +1,24 @@
+.edit_card {
+  width: 75vw;
+  margin: auto;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit_button_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input_field {
+  text-align: justify;
+}

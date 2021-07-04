@@ -33,13 +33,13 @@ router.get('/landmarks/', async (req, res) => {
 
 // Put/edit landmark
 router.put('/landmark', async (req, res) => {
-  try {
-    // Curent user's session token previously retrieved from within the FE landmarks service (implicitly auth service)
-    const sessionToken = req.headers['x-parse-session-token'];
+  // Curent user's session token previously retrieved from within the FE landmarks service (implicitly auth service)
+  const sessionToken = req.headers['x-parse-session-token'];
 
+  try {
     const landmarks = Parse.Object.extend('landmarks');
     const query = new Parse.Query(landmarks);
-    const queryResult = await query.get(req.body.id, { sessionToken: sessionToken });
+    const queryResult = await query.get(req.body.objectId);
 
     // TODO: Refine what gets updated / Set required fields or sth?
     queryResult.set('title', req.body.title);

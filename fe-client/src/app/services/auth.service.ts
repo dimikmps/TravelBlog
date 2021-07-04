@@ -65,7 +65,7 @@ export class AuthService {
     let loggedUser = parse.User.current();
     if (loggedUser) {
       // DEBUG
-      console.log('TOKEN IS: ', loggedUser.getSessionToken());
+      // console.log('TOKEN IS: ', loggedUser.getSessionToken());
       return loggedUser.getSessionToken();
     } else {
       console.log('SESSION TOKEN NOT EXISTENT...');

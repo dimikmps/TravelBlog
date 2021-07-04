@@ -23,16 +23,32 @@ export class LandmarksService {
   }
 
   // Edit landmark details (PUT)
-  editLandmark(landmark: Landmark): Observable<Landmark> {
-    return this.http.put<Landmark>(
-      `${this.uri}/api/landmark/${landmark.objectId}`,
-      landmark.title,
-      { headers: this.getSessionToken() }
-    );
+  editLandmark(landmark: Landmark) {
+    let body = {
+      objectId: landmark.objectId.toString(),
+      title: landmark.title.toString(),
+      shortInfo: landmark.shortInfo.toString(),
+      description: landmark.description.toString(),
+      url: landmark.url.toString(),
+    };
+
+    // let bodyFormatted = JSON.stringify(body);
+
+    // console.log('WHERE ARE YOU?', bodyFormatted);
+
+    return this.http
+      .put<Landmark>(`${this.uri}/api/landmark`, body, {headers: this.getSessionToken()})
+      .subscribe(
+        (response) => response,
+        (error) => console.log(error)
+      );
   }
 
   // Function to get the current user's session token, whenever necessary by the current
   getSessionToken(): HttpHeaders {
+    // DEBUG
+    // console.log('HERE NOW?', this.authService.getAuthToken());
+
     return new HttpHeaders({
       'X-Parse-Session-Token': this.authService.getAuthToken(),
     });

@@ -3,8 +3,16 @@
     <mat-card class="mat-elevation-z2">
       <mat-card-header>
         <mat-card-title>{{ landmark.title }} </mat-card-title>
-        <button *ngIf="userStatus==true" mat-raised-button color="accent" class="edit_button">Edit</button>
-        <!-- <button mat-raised-button class="edit_button">Edit</button> -->
+        <a [routerLink]="['/edit', landmark.objectId]">
+          <button
+            *ngIf="userStatus == true"
+            mat-raised-button
+            color="accent"
+            class="edit_button"
+          >
+            Edit
+          </button>
+        </a>
       </mat-card-header>
       <div class="landmark-content-container">
         <mat-card-content class="landmark-card-pic">
