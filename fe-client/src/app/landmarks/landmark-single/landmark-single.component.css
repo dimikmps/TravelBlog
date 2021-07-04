@@ -49,7 +49,7 @@ mat-card-content a {
 
 .landmark-card-pic {
   display:flex;
-  margin:3vh auto 3vh auto;
+  margin: 1vh auto 3vh auto;
 }
 
 mat-card-title {

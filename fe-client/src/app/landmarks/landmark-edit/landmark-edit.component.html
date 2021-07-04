@@ -1,60 +1,73 @@
-<div *ngIf="landmark">
-  <mat-card class="mat-elevation-z2 edit_card">
-    <mat-card-title>Edit: {{ landmark.title }}</mat-card-title>
+<div *ngIf="userStatus == true">
+  <div *ngIf="landmark">
+    <mat-card class="mat-elevation-z2 edit_card">
+      <mat-card-title>Edit: {{ landmark.title }}</mat-card-title>
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          [(ngModel)]="titleValue"
+          matInput
+          class="input_field"
+          name="title"
+          value="{{ landmark.title }}"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>Short description</mat-label>
+        <textarea
+          [(ngModel)]="shortInfo"
+          rows="10"
+          matInput
+          class="input_field"
+          name="shortDescription"
+          value="{{ landmark.shortInfo }}"
+        ></textarea>
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea
+          [(ngModel)]="descriptionValue"
+          rows="20"
+          matInput
+          class="input_field"
+          name="description"
+          value="{{ landmark.description }}"
+        ></textarea>
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>URL</mat-label>
+        <input
+          [(ngModel)]="urlValue"
+          matInput
+          class="input_field"
+          name="url"
+          value="{{ landmark.url }}"
+        />
+      </mat-form-field>
+      <br />
+      <div class="edit_button_wrapper">
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="
+            editTrigger(titleValue, shortInfo, descriptionValue, urlValue)
+          "
+        >
+          Save
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<div *ngIf="userStatus == false">
+  <mat-card class="mat-elevation-z2 warning_card">
     <mat-form-field appearance="fill">
-      <mat-label>Title</mat-label>
-      <input
-        [(ngModel)]="titleValue"
-        matInput
-        class="input_field"
-        name="title"
-        value="{{ landmark.title }}"
-      />
+      <p class="warning_text">Please log in for administrative/editing rights...</p>
     </mat-form-field>
-    <br />
-    <mat-form-field appearance="fill">
-      <mat-label>Short description</mat-label>
-      <textarea
-        [(ngModel)]="shortInfo"
-        rows="10"
-        matInput
-        class="input_field"
-        name="shortDescription"
-        value="{{ landmark.shortInfo }}"
-      ></textarea>
-    </mat-form-field>
-    <br />
-    <mat-form-field appearance="fill">
-      <mat-label>Description</mat-label>
-      <textarea
-        [(ngModel)]="descriptionValue"
-        rows="20"
-        matInput
-        class="input_field"
-        name="description"
-        value="{{ landmark.description }}"
-      ></textarea>
-    </mat-form-field>
-    <br />
-    <mat-form-field appearance="fill">
-      <mat-label>URL</mat-label>
-      <input
-        [(ngModel)]="urlValue"
-        matInput
-        class="input_field"
-        name="url"
-        value="{{ landmark.url }}"
-      />
-    </mat-form-field>
-    <br />
-    <div class="edit_button_wrapper">
-      <button
-        mat-raised-button
-        color="accent"
-        (click)="editTrigger(titleValue, shortInfo, descriptionValue, urlValue)"
-      >
-        Save
-      </button>
-    </div>
   </mat-card>
 </div>
+<br>
+<br>
