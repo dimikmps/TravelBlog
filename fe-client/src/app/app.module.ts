@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { LandmarkSingleComponent } from './landmarks/landmark-single/landmark-single.component';
 import { AuthService } from './services/auth.service';
 import { LandmarkEditComponent } from './landmarks/landmark-edit/landmark-edit.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { LandmarkEditComponent } from './landmarks/landmark-edit/landmark-edit.c
     LandmarkListComponent,
     LoginComponent,
     LandmarkSingleComponent,
-    LandmarkEditComponent
+    LandmarkEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +42,7 @@ import { LandmarkEditComponent } from './landmarks/landmark-edit/landmark-edit.c
     MatToolbarModule,
     HttpClientModule,
     ReactiveFormsModule,
+    LeafletModule
   ],
   providers: [LandmarksService, AuthService],
   bootstrap: [AppComponent],

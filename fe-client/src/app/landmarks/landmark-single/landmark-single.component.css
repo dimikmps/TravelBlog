@@ -59,3 +59,7 @@ margin-top: 12px;
   position: absolute;
   right: 1%;
 }
+
+#map {
+  height: 600px;
+}
