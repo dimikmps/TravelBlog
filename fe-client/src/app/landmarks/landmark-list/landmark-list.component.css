@@ -20,10 +20,8 @@ mat-card-header {
   }
 
   .landmark-card-pic {
-    display: flex;
-     margin: auto 1vw auto 1vw;
+    margin: auto 1vw auto 1vw;
   }
-  /* body > app-root > main > app-landmark-list > div > div:nth-child(1) > mat-card > div > mat-card-content.mat-card-content.landmark-card-pic > img */
 }
 
 .landmark-card-short-desc {
@@ -36,6 +34,11 @@ mat-card-header {
   align-items: center;
 }
 
+.landmark-card-pic {
+  display: flex;
+  /* margin-right: 0.5rem; */
+  margin-bottom: 32px;
+}
 
 @media (max-width: 960px) {
   .landmark-card-pic {
@@ -48,7 +51,7 @@ mat-card-header {
 
   .landmark-card-short-desc {
     height: 15.5vh;
-    }
+  }
 }
 
 /* .landmark-content-container:first-child {
