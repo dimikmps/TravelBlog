@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Landmark } from '../../landmark.model';
 import { LandmarksService } from 'src/app/services/landmarks.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { NgForm } from '@angular/forms';
+import swal from 'sweetalert';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landmark-edit',
@@ -23,7 +24,8 @@ export class LandmarkEditComponent implements OnInit {
   constructor(
     private landmarksService: LandmarksService,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -47,7 +49,12 @@ export class LandmarkEditComponent implements OnInit {
     });
   }
 
-  editTrigger(title: string, shortInfo: string, description: string, urlValue: string) {
+  editTrigger(
+    title: string,
+    shortInfo: string,
+    description: string,
+    urlValue: string
+  ) {
     this.titleValue = title;
     this.shortInfo = shortInfo;
     this.descriptionValue = description;
@@ -62,5 +69,8 @@ export class LandmarkEditComponent implements OnInit {
     // console.log('DEBUG Landmark:', this.newLandmark);
 
     this.landmarksService.editLandmark(this.newLandmark);
+
+    // Redirect to homepage
+    this.router.navigate(['/landmark/', this.newLandmark.objectId]);
   }
 }

@@ -4,6 +4,7 @@ import * as Parse from 'parse';
 let parse = require('parse');
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import swal from 'sweetalert';
 
 import { environment } from '../../environments/environment';
 
@@ -36,12 +37,16 @@ export class AuthService {
           this.userStatus.next(true);
           resolve();
 
+          this.alert_login_sucess();
           // Redirect to homepage
           this.router.navigate(['/']);
         },
         (err) => {
           // DEBUG
           console.log('LOGIN FAILURE...');
+
+          this.alert_login_fail();
+
           this.authToken = this.getAuthToken();
           reject(err);
         }
@@ -56,8 +61,10 @@ export class AuthService {
     // Change the user's status to logged out
     this.userStatus.next(false);
 
+    this.alert_logout_sucess();
+
     // Redirect to homepage
-    // this.router.navigate(['/']);
+    this.router.navigate(['/']);
   }
 
   // Get current user's token
@@ -76,5 +83,15 @@ export class AuthService {
   // Check if the user is logged in or not
   checkUserStatus() {
     return this.userStatus;
+  }
+
+  alert_login_sucess() {
+    swal('Login', 'You have succesfully logged in!');
+  }
+  alert_login_fail() {
+    swal('Login', 'Wrong/non existing sign-in credentials!', 'warning');
+  }
+  alert_logout_sucess() {
+    swal('', 'You have succesfully logged out!');
   }
 }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
+import swal from 'sweetalert';
 
 @Injectable({
   providedIn: 'root',
@@ -37,10 +38,18 @@ export class LandmarksService {
     // console.log('WHERE ARE YOU?', bodyFormatted);
 
     return this.http
-      .put<Landmark>(`${this.uri}/api/landmark`, body, {headers: this.getSessionToken()})
+      .put<Landmark>(`${this.uri}/api/landmark`, body, {
+        headers: this.getSessionToken(),
+      })
       .subscribe(
-        (response) => response,
-        (error) => console.log(error)
+        (response) => {
+          response;
+          this.alert_sucess();
+        },
+        (error) => {
+          console.log(error);
+          this.alert_error();
+        }
       );
   }
 
@@ -52,5 +61,13 @@ export class LandmarksService {
     return new HttpHeaders({
       'X-Parse-Session-Token': this.authService.getAuthToken(),
     });
+  }
+
+  alert_sucess() {
+    swal('Edit Landmark', 'Changes saved succesfully!', 'success');
+  }
+
+  alert_error() {
+    swal("Edit Landmark","Something went wrong...","error");
   }
 }
