@@ -21,6 +21,7 @@ import { AuthService } from './services/auth.service';
 import { LandmarkEditComponent } from './landmarks/landmark-edit/landmark-edit.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     LoginComponent,
     LandmarkSingleComponent,
     LandmarkEditComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
