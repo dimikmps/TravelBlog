@@ -21,6 +21,15 @@ mat-card-header {
   margin-top: 20px;
 }
 
+.landmark-card-pic-container {
+  max-width: 500px;
+  max-height: 500px;
+  align-items: center;
+  justify-content: center;
+  display:flex;
+  margin: 20px auto 20px auto;
+}
+
 .landmark-card-pic {
   /* display: flex;
   margin-right: 0.5rem; */
@@ -28,10 +37,14 @@ mat-card-header {
   max-height: 250px;
   object-fit: contain;
   align-items: center;
+  display:flex;
+  /* margin: 30px auto 10px auto; */
+  padding-bottom: 10px;
 }
 
 /* .landmark-content-container:first-child {
-  margin-right: 20px;
+  margin: auto;
+  justify-content: center;
 } */
 
 .landmark-card-action {
@@ -49,10 +62,6 @@ mat-card-content a {
   color: #ff4081 !important;
 }
 
-.landmark-card-pic {
-  display:flex;
-  margin: 30px auto 10px auto;
-}
 
 mat-card-title {
 margin-top: 12px;
