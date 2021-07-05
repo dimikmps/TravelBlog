@@ -16,19 +16,32 @@
       </mat-card-header>
       <div class="landmark-content-container">
         <mat-card-content class="landmark-card-pic">
-          <img
+          <div
             *ngIf="landmark.photoThumb == undefined"
             class="landmark-card-pic"
-            src="../../../assets/files/placeholder_medium.png"
-            alt="Photo of landmark"
-          />
-          <img
+          >
+            <img
+              class="landmark-card-pic"
+              src="../../../assets/files/placeholder_medium.png"
+              alt="Photo of landmark"
+            />
+          </div>
+          <div
             *ngIf="landmark.photoThumb !== undefined"
             class="landmark-card-pic"
-            mat-card-image
-            src="{{ landmark.photoThumb.url }}"
-            alt="Photo of landmark"
-          />
+          >
+            <a
+              *ngIf="landmark.photo"
+              href="{{ landmark.photo.url }}"
+              target="_blank"
+            >
+              <img
+                mat-card-image
+                src="{{ landmark.photoThumb.url }}"
+                alt="Photo of landmark"
+              />
+            </a>
+          </div>
         </mat-card-content>
         <mat-card-content class="landmark-card-desc">
           <a>{{ landmark.description }}</a>
@@ -49,7 +62,7 @@
         </mat-card-content>
       </div>
     </mat-card>
-    <br>
-    <br>
+    <br />
+    <br />
   </div>
 </div>
