@@ -44,6 +44,22 @@ export class LandmarksService {
       );
   }
 
+  // Edit photo (PUT)
+  editPhoto(landmark: Landmark) {
+
+    const formData = new FormData();
+
+    formData.append('objectId', landmark.objectId);
+    formData.append('photo', landmark.photoFile);
+
+    return this.http
+      .put<Landmark>(`${this.uri}/api/photo`, formData, {headers: this.getSessionToken()})
+      .subscribe(
+        (response) => response,
+        (error) => console.log(error)
+      );
+  }
+
   // Function to get the current user's session token, whenever necessary by the current
   getSessionToken(): HttpHeaders {
     // DEBUG

@@ -36,8 +36,8 @@ export class LandmarkEditComponent implements OnInit {
       // DEBUG
       // console.log('HOORAH!:', landmark);
       this.landmark = landmark;
-
       this.newLandmark = landmark;
+
       this.titleValue = landmark.title;
       this.shortInfo = landmark.shortInfo;
       this.descriptionValue = landmark.description;

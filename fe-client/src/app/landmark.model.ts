@@ -14,5 +14,6 @@ export interface Landmark {
   photoThumb: {
       url: string
   };
+  photoFile
 }
 
