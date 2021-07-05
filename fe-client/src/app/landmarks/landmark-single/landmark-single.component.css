@@ -39,7 +39,7 @@ mat-card-header {
   align-items: center;
   display:flex;
   /* margin: 30px auto 10px auto; */
-  padding-bottom: 10px;
+  /* padding-bottom: 20px; */
 }
 
 /* .landmark-content-container:first-child {

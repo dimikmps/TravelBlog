@@ -1,5 +1,5 @@
 mat-card {
-  width: 50vw;
+  width: 75vw;
   margin: auto;
   margin-bottom: 3rem;
 }
@@ -13,22 +13,23 @@ mat-card-header {
 
 @media (min-width: 960px) {
   .landmark-content-container {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     min-height: 30vh;
     margin-bottom: 0.5rem;
   }
 
   .landmark-card-pic {
-    margin: auto 1vw auto 1vw;
+    margin: auto 10px auto auto;
   }
+
 }
 
 .landmark-card-short-desc {
   display: flex;
   /* border: 2px solid yellow; */
   /* width: 50%; */
-  height: 25.5vh;
+  height: 250px;
   overflow: hidden;
   justify-content: center;
   align-items: center;
@@ -49,14 +50,15 @@ mat-card-header {
     object-fit: contain;
   }
 
-  .landmark-card-short-desc {
+  /* .landmark-card-short-desc {
     height: 15.5vh;
-  }
+  } */
 }
 
 /* .landmark-content-container:first-child {
   margin-right: 20px;
 } */
+
 
 .landmark-card-action {
   display: flex;
@@ -68,3 +70,5 @@ mat-card-title a,
 mat-card-content a {
   color: black;
 }
+
+
