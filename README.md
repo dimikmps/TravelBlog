@@ -21,9 +21,9 @@ ng serve
 ```
 
 ## Capabilities
-- All users can view a list of all available landmarks, ordered by their respective DB-based ordering.
+- All users can view a list of all available landmarks, ordered by their respective DB-based ordering
 - A range of landmark details are depicted within a card which also provides access to its full details via clicking the action button or the landmark's title.
-- Each landmat's detailed view further provides:
+- Each landmark's detailed view further provides:
     - Its full description
     - Capability of viewing the landmark's full-size photo
     - Capability of visiting the landmark's official website
