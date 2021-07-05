@@ -22,42 +22,49 @@ export class LandmarksService {
     return this.http.get<Landmark>(`${this.uri}/api/landmarks/${id}`);
   }
 
-  // Edit landmark details (PUT)
-  editLandmark(landmark: Landmark) {
-    let body = {
-      objectId: landmark.objectId.toString(),
-      title: landmark.title.toString(),
-      shortInfo: landmark.shortInfo.toString(),
-      description: landmark.description.toString(),
-      url: landmark.url.toString(),
-    };
+  editRouter(landmark: Landmark) {
+    if (!landmark.photoFile) {
+      // DEBUG
+      console.log('No file uploaded. API v.1.0.1');
 
-    // let bodyFormatted = JSON.stringify(body);
+      let body = {
+        objectId: landmark.objectId.toString(),
+        title: landmark.title.toString(),
+        shortInfo: landmark.shortInfo.toString(),
+        description: landmark.description.toString(),
+        url: landmark.url.toString(),
+      };
 
-    // console.log('WHERE ARE YOU?', bodyFormatted);
+      return this.http
+        .put<Landmark>(`${this.uri}/api/landmark`, body, {
+          headers: this.getSessionToken(),
+        })
+        .subscribe(
+          (response) => response,
+          (error) => console.log(error)
+        );
+    } else {
+      // DEBUG
+      console.log('File upload detected. API v.1.0.2');
 
-    return this.http
-      .put<Landmark>(`${this.uri}/api/landmark`, body, {headers: this.getSessionToken()})
-      .subscribe(
-        (response) => response,
-        (error) => console.log(error)
-      );
-  }
+      const formData = new FormData();
 
-  // Edit photo (PUT)
-  editPhoto(landmark: Landmark) {
+      formData.append('objectId', landmark.objectId);
+      formData.append('file', landmark.photoFile);
+      formData.append('title', landmark.title);
+      formData.append('shortInfo', landmark.shortInfo);
+      formData.append('description', landmark.description);
+      formData.append('url', landmark.url);
 
-    const formData = new FormData();
-
-    formData.append('objectId', landmark.objectId);
-    formData.append('photo', landmark.photoFile);
-
-    return this.http
-      .put<Landmark>(`${this.uri}/api/photo`, formData, {headers: this.getSessionToken()})
-      .subscribe(
-        (response) => response,
-        (error) => console.log(error)
-      );
+      return this.http
+        .put<Landmark>(`${this.uri}/api/photo`, formData, {
+          headers: this.getSessionToken(),
+        })
+        .subscribe(
+          (response) => response,
+          (error) => console.log(error)
+        );
+    }
   }
 
   // Function to get the current user's session token, whenever necessary by the current

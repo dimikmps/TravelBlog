@@ -33,7 +33,7 @@ router.get('/landmarks/', async (req, res) => {
   }
 });
 
-// Put/edit landmark
+// Put v.1.0.1 (no photo)
 router.put('/landmark', async (req, res) => {
   // Curent user's session token previously retrieved from within the FE landmarks service (implicitly auth service)
   const sessionToken = req.headers['x-parse-session-token'];
@@ -60,7 +60,7 @@ router.put('/landmark', async (req, res) => {
   // TODO: Add error handling in case of no token
 });
 
-// Put/edit photo
+// PUT v.1.0.2 (w. photo)
 router.put('/photo', file, async (req, res) => {
   // Curent user's session token previously retrieved from within the FE landmarks service (implicitly auth service)
   const sessionToken = req.headers['x-parse-session-token'];
@@ -80,6 +80,11 @@ router.put('/photo', file, async (req, res) => {
         const fileThumb = await image_handler.thumb_handler(req.file);
         queryResult.set('photoThumb', fileThumb);
       }
+
+      queryResult.set('title', req.body.title);
+      queryResult.set('description', req.body.description);
+      queryResult.set('shortInfo', req.body.shortInfo);
+      queryResult.set('url', req.body.url);
 
       await queryResult.save(null, { sessionToken: sessionToken });
 

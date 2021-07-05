@@ -20,6 +20,7 @@ export class LandmarkEditComponent implements OnInit {
   shortInfo = '';
   descriptionValue = '';
   urlValue = '';
+  public photoFile;
 
   constructor(
     private landmarksService: LandmarksService,
@@ -65,12 +66,24 @@ export class LandmarkEditComponent implements OnInit {
     this.newLandmark.description = this.descriptionValue;
     this.newLandmark.url = this.urlValue;
 
+    if (this.photoFile) {
+      this.newLandmark.photoFile = this.photoFile;
+    }
+
     // DEBUG
     // console.log('DEBUG Landmark:', this.newLandmark);
 
-    this.landmarksService.editLandmark(this.newLandmark);
+    this.landmarksService.editRouter(this.newLandmark);
 
     this.alert_sucess();
+  }
+
+  // Sets the photoFile to the file uploaded via the Edit page -> upload button
+  uploadTrigger(event) {
+    this.photoFile = event.target.files[0];
+
+    // DEBUG
+    // console.log('This is the retrieved file:', this.photoFile);
   }
 
   async alert_sucess() {
