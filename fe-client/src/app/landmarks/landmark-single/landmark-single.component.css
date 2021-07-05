@@ -18,6 +18,7 @@ mat-card-header {
   /* border: 2px solid yellow; */
   /* width: 50%; */
   text-align: justify;
+  margin-top: 20px;
 }
 
 .landmark-card-pic {
@@ -37,6 +38,7 @@ mat-card-header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 40px auto 30px auto;
 }
 
 mat-card-content a {
@@ -49,7 +51,7 @@ mat-card-content a {
 
 .landmark-card-pic {
   display:flex;
-  margin: 1vh auto 3vh auto;
+  margin: 30px auto 10px auto;
 }
 
 mat-card-title {

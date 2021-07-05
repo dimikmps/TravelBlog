@@ -5,19 +5,22 @@
 
 mat-form-field {
   width: 100%;
-  text-align: center;
+  /* text-align: center; */
+  margin: auto auto 20px auto;
 }
 
 mat-card-title {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto auto 30px auto;
 }
 
 .edit_button_wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto auto auto auto;
 }
 
 .warning_card {
@@ -37,4 +40,27 @@ mat-card-title {
 
 .input_field {
   text-align: justify;
+  margin: auto auto 10px auto;
+}
+
+mat-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  max-height: 500px;
+}
+
+
+.landmark-card-pic {
+  max-width: 250px;
+  max-height: 250px;
+  object-fit: contain;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card-image {
+  max-width: 250px;
+  max-height: 250px;
 }

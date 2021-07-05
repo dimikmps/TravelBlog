@@ -1,27 +1,43 @@
 <div *ngIf="userStatus == true">
-  <div *ngIf="landmark">
-    <mat-card class="mat-elevation-z2 edit_card">
-      <mat-card-title>Edit: {{ landmark.title }}</mat-card-title>
-      <mat-form-field appearance="fill">
-        <mat-label>Title</mat-label>
-        <input
-          [(ngModel)]="titleValue"
-          matInput
-          class="input_field"
-          name="title"
-          value="{{ landmark.title }}"
-        />
-      </mat-form-field>
-      <br />
+<div *ngIf="landmark">
+  <mat-card class="mat-elevation-z2 edit_card">
+    <mat-card-title>{{ landmark.title }} (Edit mode)</mat-card-title>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input
+        [(ngModel)]="titleValue"
+        matInput
+        class="input_field"
+        name="title"
+        value="{{ landmark.title }}"
+      />
+    </mat-form-field>
+    <br />
+    <mat-card-content>
       <div>
-        <mat-card-content>
-          <img
-            *ngIf="landmark.photoThumb == undefined"
-            mat-card-image
-            class="landmark-card-pic"
-            src="../../../assets/files/placeholder_medium.png"
-            alt="Photo of landmark"
-          />
+        <img
+          *ngIf="landmark.photoThumb == undefined"
+          mat-card-image
+          class="landmark-card-pic"
+          src="../../../assets/files/placeholder_medium.png"
+          alt="Photo of landmark"
+        />
+        <div *ngIf="landmark.photoThumb !== undefined">
+          <a
+            *ngIf="landmark.photo !== undefined"
+            href="{{ landmark.photo.url }}"
+            target="_blank"
+          >
+            <img
+              *ngIf="landmark.photoThumb !== undefined"
+              mat-card-image
+              src="{{ landmark.photoThumb.url }}"
+              class="landmark-card-pic"
+              alt="Photo of landmark"
+            />
+          </a>
+        </div>
+        <div *ngIf="landmark.photo == undefined">
           <img
             *ngIf="landmark.photoThumb !== undefined"
             mat-card-image
@@ -29,63 +45,67 @@
             class="landmark-card-pic"
             alt="Photo of landmark"
           />
-          <div class="edit_button_wrapper">
-            <button mat-raised-button type="button" (click)="file.click()">
-              Upload
-            </button>
-            <input #file hidden type="file" (change)="uploadTrigger($event)" />
-          </div>
-        </mat-card-content>
+        </div>
+        <div class="edit_button_wrapper">
+          <button
+            mat-raised-button
+            color="accent"
+            type="button"
+            (click)="file.click()"
+          >
+            Upload
+          </button>
+          <input #file hidden type="file" (change)="uploadTrigger($event)" />
+        </div>
       </div>
-      <br />
-      <mat-form-field appearance="fill">
-        <mat-label>Short description</mat-label>
-        <textarea
-          [(ngModel)]="shortInfo"
-          rows="10"
-          matInput
-          class="input_field"
-          name="shortDescription"
-          value="{{ landmark.shortInfo }}"
-        ></textarea>
-      </mat-form-field>
-      <br />
-      <mat-form-field appearance="fill">
-        <mat-label>Description</mat-label>
-        <textarea
-          [(ngModel)]="descriptionValue"
-          rows="20"
-          matInput
-          class="input_field"
-          name="description"
-          value="{{ landmark.description }}"
-        ></textarea>
-      </mat-form-field>
-      <br />
-      <mat-form-field appearance="fill">
-        <mat-label>URL</mat-label>
-        <input
-          [(ngModel)]="urlValue"
-          matInput
-          class="input_field"
-          name="url"
-          value="{{ landmark.url }}"
-        />
-      </mat-form-field>
-      <br />
-      <div class="edit_button_wrapper">
-        <button
-          mat-raised-button
-          color="accent"
-          (click)="
-            editTrigger(titleValue, shortInfo, descriptionValue, urlValue)
-          "
-        >
-          Save
-        </button>
-      </div>
-    </mat-card>
-  </div>
+    </mat-card-content>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Short description</mat-label>
+      <textarea
+        [(ngModel)]="shortInfo"
+        rows="10"
+        matInput
+        class="input_field"
+        name="shortDescription"
+        value="{{ landmark.shortInfo }}"
+      ></textarea>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea
+        [(ngModel)]="descriptionValue"
+        rows="20"
+        matInput
+        class="input_field"
+        name="description"
+        value="{{ landmark.description }}"
+      ></textarea>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>URL</mat-label>
+      <input
+        [(ngModel)]="urlValue"
+        matInput
+        class="input_field"
+        name="url"
+        value="{{ landmark.url }}"
+      />
+    </mat-form-field>
+    <br />
+    <div class="edit_button_wrapper">
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="editTrigger(titleValue, shortInfo, descriptionValue, urlValue)"
+      >
+        Save
+      </button>
+    </div>
+  </mat-card>
+</div>
 </div>
 <div *ngIf="userStatus == false">
   <mat-card class="mat-elevation-z2 warning_card">

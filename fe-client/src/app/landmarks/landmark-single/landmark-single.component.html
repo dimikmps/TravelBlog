@@ -31,10 +31,17 @@
             class="landmark-card-pic"
           >
             <a
-              *ngIf="landmark.photo"
+              *ngIf="landmark.photo !== undefined"
               href="{{ landmark.photo.url }}"
               target="_blank"
             >
+              <img
+                mat-card-image
+                src="{{ landmark.photoThumb.url }}"
+                alt="Photo of landmark"
+              />
+            </a>
+            <a *ngIf="landmark.photo == undefined">
               <img
                 mat-card-image
                 src="{{ landmark.photoThumb.url }}"
