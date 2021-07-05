@@ -64,3 +64,8 @@ mat-card-image {
   max-width: 250px;
   max-height: 250px;
 }
+
+.photo_title > p {
+  font-size: 12px;
+  text-align: center;
+}

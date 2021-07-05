@@ -38,7 +38,7 @@ mat-card-header {
 .landmark-card-pic {
   display: flex;
   /* margin-right: 0.5rem; */
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
 }
 
 @media (max-width: 960px) {
