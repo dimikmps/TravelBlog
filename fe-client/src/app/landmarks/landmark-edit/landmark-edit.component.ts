@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Landmark } from '../../landmark.model';
 import { LandmarksService } from 'src/app/services/landmarks.service';
 import { AuthService } from 'src/app/services/auth.service';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
 @Component({
@@ -87,6 +87,6 @@ export class LandmarkEditComponent implements OnInit {
   }
 
   async alert_sucess() {
-    swal('Edit Landmark', 'Changes saved succesfully!', 'success');
+    swal.fire('Edit Landmark', 'Changes saved succesfully!', 'success');
   }
 }

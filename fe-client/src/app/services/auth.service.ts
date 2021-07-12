@@ -4,7 +4,7 @@ import * as Parse from 'parse';
 let parse = require('parse');
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 
 import { environment } from '../../environments/environment';
 
@@ -86,12 +86,12 @@ export class AuthService {
   }
 
   alert_login_sucess() {
-    swal('Login', 'You have succesfully logged in!');
+    swal.fire('Login', 'You have succesfully logged in!');
   }
   alert_login_fail() {
-    swal('Login', 'Wrong/non existing sign-in credentials!', 'warning');
+    swal.fire('Login', 'Wrong/non existing sign-in credentials!', 'warning');
   }
   alert_logout_sucess() {
-    swal('', 'You have succesfully logged out!');
+    swal.fire('', 'You have succesfully logged out!');
   }
 }
