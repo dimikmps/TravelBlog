@@ -11,12 +11,14 @@ Install any dependencies via npm install.
 ### Back-end deployment
 ```sh
 cd be-client
+npm install
 npm start
 ```
 
 ### Front-end deployment
 ```sh
 cd fe-client
+npm install
 ng serve
 ```
 
