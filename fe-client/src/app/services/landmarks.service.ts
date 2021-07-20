@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
+import swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,7 @@ export class LandmarksService {
   editRouter(landmark: Landmark) {
     if (!landmark.photoFile) {
       // DEBUG
-      console.log('No file uploaded. API v.1.0.1');
+      console.log('No file uploaded. API v.1.1');
 
       let body = {
         objectId: landmark.objectId.toString(),
@@ -40,12 +41,15 @@ export class LandmarksService {
           headers: this.getSessionToken(),
         })
         .subscribe(
-          (response) => response,
+          (response) => {
+            this.alert_sucess();
+            return response;
+          },
           (error) => console.log(error)
         );
     } else {
       // DEBUG
-      console.log('File upload detected. API v.1.0.2');
+      console.log('File upload detected. API v.1.2');
 
       const formData = new FormData();
 
@@ -56,13 +60,21 @@ export class LandmarksService {
       formData.append('description', landmark.description);
       formData.append('url', landmark.url);
 
+      this.alert_loading();
+
       return this.http
         .put<Landmark>(`${this.uri}/api/photo`, formData, {
           headers: this.getSessionToken(),
         })
         .subscribe(
-          (response) => response,
-          (error) => console.log(error)
+          (response) => {
+            this.alert_sucess();
+            return response;
+          },
+          (error) => {
+            // console.log(error)
+            this.alert_error();
+          }
         );
     }
   }
@@ -75,5 +87,18 @@ export class LandmarksService {
     return new HttpHeaders({
       'X-Parse-Session-Token': this.authService.getAuthToken(),
     });
+  }
+
+  async alert_sucess() {
+    swal.fire('Upload success', 'Changes saved succesfully!', 'success');
+  }
+
+  async alert_error() {
+    swal.fire('Upload error', 'Photo exceeds maximum allowed size! Please choose another file.', 'error');
+  }
+
+  async alert_loading() {
+    swal.fire('Please wait while your file is being uploaded...');
+    swal.showLoading();
   }
 }

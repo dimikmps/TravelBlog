@@ -74,8 +74,6 @@ export class LandmarkEditComponent implements OnInit {
     // console.log('DEBUG Landmark:', this.newLandmark);
 
     this.landmarksService.editRouter(this.newLandmark);
-
-    this.alert_sucess();
   }
 
   // Sets the photoFile to the file uploaded via the Edit page -> upload button
@@ -86,7 +84,4 @@ export class LandmarkEditComponent implements OnInit {
     // console.log('This is the retrieved file:', this.photoFile);
   }
 
-  async alert_sucess() {
-    swal.fire('Edit Landmark', 'Changes saved succesfully!', 'success');
-  }
 }
