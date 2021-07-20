@@ -35,6 +35,7 @@ export class AuthService {
 
           // Change the user status to logged in
           this.userStatus.next(true);
+          localStorage.setItem('userLoggedIn', 'true');
           resolve();
 
           this.alert_login_sucess();
@@ -60,6 +61,7 @@ export class AuthService {
 
     // Change the user's status to logged out
     this.userStatus.next(false);
+    localStorage.setItem('userLoggedIn', 'false');
 
     this.alert_logout_sucess();
 
@@ -82,6 +84,9 @@ export class AuthService {
 
   // Check if the user is logged in or not
   checkUserStatus() {
+    if (localStorage.getItem('userLoggedIn') && (localStorage.getItem('userLoggedIn') == 'true') && (this.getAuthToken())) {
+      this.userStatus.next(true);
+    } else this.userStatus.next(false);
     return this.userStatus;
   }
 
