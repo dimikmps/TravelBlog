@@ -80,8 +80,15 @@ export class LandmarkEditComponent implements OnInit {
   uploadTrigger(event) {
     this.photoFile = event.target.files[0];
 
+    const reader = new FileReader();
+
+    reader.readAsDataURL(this.photoFile);
+
+    reader.onload = (event: any) => {
+      this.landmark.photoThumb.url = event.target.result;
+    };
+
     // DEBUG
     // console.log('This is the retrieved file:', this.photoFile);
   }
-
 }
